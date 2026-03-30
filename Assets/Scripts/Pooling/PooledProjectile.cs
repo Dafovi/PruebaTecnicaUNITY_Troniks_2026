@@ -65,6 +65,9 @@ public class PooledProjectile : MonoBehaviour
         if (!_isInitialized)
             return;
 
+        if(other.CompareTag("Projectile"))
+            return;
+
         if (other.TryGetComponent(out IDamageable damageable))
         {
             damageable.TakeDamage(_damage);

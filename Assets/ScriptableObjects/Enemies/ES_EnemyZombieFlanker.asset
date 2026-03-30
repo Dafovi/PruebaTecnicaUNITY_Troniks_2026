@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b04c9a56d003cee439526cadcfa03e92, type: 3}
+  m_Name: ES_EnemyZombieFlanker
+  m_EditorClassIdentifier: 
+  Archetype: 1
+  MoveSpeed: 2.6
+  Damage: 1
+  AttackCooldown: 1.1
+  MaxHealth: 20
+  AttackRange: 1.2
+  StoppingDistance: 0.95
+  ScoreOnDeath: 10
+  ZigZagAmplitude: 1.1
+  ZigZagFrequency: 3
+  InjuredSpeedMultiplier: 0.4
+  BackstabDistance: 0.95
+  FleeDistance: 5
+  FleeSpeedMultiplier: 1.2
+  RecoverDistance: 20

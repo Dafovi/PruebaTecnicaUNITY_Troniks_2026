@@ -10,19 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b04c9a56d003cee439526cadcfa03e92, type: 3}
-  m_Name: ES_EnemyAggressive
+  m_Name: ES_EnemyZombieAggressive
   m_EditorClassIdentifier: 
   Archetype: 0
-  MoveSpeed: 2
+  MoveSpeed: 2.2
   Damage: 1
   AttackCooldown: 1
-  MaxHealth: 5
+  MaxHealth: 30
   AttackRange: 1.2
-  StoppingDistance: 0.9
+  StoppingDistance: 0.95
   ScoreOnDeath: 10
-  ZigZagAmplitude: 1
-  ZigZagFrequency: 3
-  InjuredSpeedMultiplier: 0.45
+  ZigZagAmplitude: 6
+  ZigZagFrequency: 4
+  InjuredSpeedMultiplier: 0.5
   BackstabDistance: 2.5
   FleeDistance: 5
   FleeSpeedMultiplier: 1.2
+  RecoverDistance: 6
