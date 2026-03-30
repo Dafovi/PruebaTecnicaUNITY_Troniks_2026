@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afdeaf613586ccf4bbdf0a284c475623, type: 3}
+  m_Name: WD_MachineGun
+  m_EditorClassIdentifier: 
+  FireRate: 0.08
+  Damage: 1
+  ProjectilePrefab: {fileID: 8841480559415985528, guid: 1f04a3fa81a57ae45805f55625f29058,
+    type: 3}
+  ProjectileSpeed: 26
+  ProjectileLifetime: 2
+  ProjectileCount: 1
+  SpreadAngle: 2.5
