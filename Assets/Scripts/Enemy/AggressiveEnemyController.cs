@@ -4,31 +4,22 @@ public class AggressiveEnemyController : EnemyBaseController
 {
     public override void MoveByState()
     {
-        if (Stats == null || IsDead)
-        {
+        if (IsDead || !CanMove)
             return;
-        }
-
-        if (!CanMove)
-        {
-            return;
-        }
-
-        float moveFactor = GetChaseMoveFactor();
 
         if (HealthPercent > 0.5f)
         {
-            MoveDirect(moveFactor);
+            MoveDirect(_walkFactor);
             return;
         }
 
         if (HealthPercent > 0.2f)
         {
-            MoveZigZag(moveFactor);
+            MoveZigZag(_runFactor);
             return;
         }
 
-        MoveDirect(moveFactor);
+        MoveDirect(_dragFactor);
     }
 
     public override void Flee()
@@ -44,20 +35,6 @@ public class AggressiveEnemyController : EnemyBaseController
     public override bool ShouldRecoverFromFlee()
     {
         return false;
-    }
-
-    protected override float GetChaseMoveFactor()
-    {
-        if (IsDead || !CanMove)
-            return 0f;
-
-        if (HealthPercent > 0.5f)
-            return _walkFactor;
-
-        if (HealthPercent > 0.2f)
-            return _runFactor;
-
-        return _dragFactor;
     }
 
     protected override bool ShouldDrag()

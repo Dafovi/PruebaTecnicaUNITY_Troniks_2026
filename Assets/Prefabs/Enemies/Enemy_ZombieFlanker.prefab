@@ -69,6 +69,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_ZombieFlanker
       objectReference: {fileID: 0}
+    - target: {fileID: 8912964788577994545, guid: ccf0bfd1c85232a42911ccc7d7420393,
+        type: 3}
+      propertyPath: _enemy
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3092394718550962997, guid: ccf0bfd1c85232a42911ccc7d7420393, type: 3}
     m_RemovedGameObjects: []
@@ -82,6 +87,12 @@ PrefabInstance:
 --- !u!95 &1624135176529052528 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4240539759803357787, guid: ccf0bfd1c85232a42911ccc7d7420393,
+    type: 3}
+  m_PrefabInstance: {fileID: 3194030869711214891}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1624135176536583398 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4240539759793485261, guid: ccf0bfd1c85232a42911ccc7d7420393,
     type: 3}
   m_PrefabInstance: {fileID: 3194030869711214891}
   m_PrefabAsset: {fileID: 0}
@@ -106,6 +117,7 @@ MonoBehaviour:
   _defaultStats: {fileID: 11400000, guid: 46e5bed410dd8c842b7608904e5dd742, type: 2}
   _target: {fileID: 0}
   _animator: {fileID: 1624135176529052528}
+  _animatedRoot: {fileID: 1624135176536583398}
   _hurtDuration: 1
   _attackDuration: 1.2
   _walkFactor: 0.7

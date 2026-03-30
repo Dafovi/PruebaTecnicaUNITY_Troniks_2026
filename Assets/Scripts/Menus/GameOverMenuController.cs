@@ -30,8 +30,8 @@ public class GameOverMenuController : MonoBehaviour
         if (!isGameOver)
             return;
 
-        _finalScoreText.text = $"Score: {ScoreManager.Instance.CurrentScore}";
-        _highScoreText.text = $"Best: {ScoreManager.Instance.HighScore}";
+        _finalScoreText.text = $"Wave Reached: {ScoreManager.Instance.CurrentWave}";
+        _highScoreText.text = $"Best Wave: {ScoreManager.Instance.HighWave}";
     }
 
     public void OnRestartPressed()

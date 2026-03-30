@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(EnemyBaseController))]
 public class EnemyStateMachine : MonoBehaviour
 {
     private EnemyBaseController _enemyController;
@@ -20,7 +19,7 @@ public class EnemyStateMachine : MonoBehaviour
 
     public void Tick()
     {
-        if (_enemyController == null || _enemyController.Stats == null)
+        if (_enemyController == null)
             return;
 
         if (_enemyController.IsDead)

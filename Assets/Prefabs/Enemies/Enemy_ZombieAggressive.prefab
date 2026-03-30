@@ -268,6 +268,7 @@ MonoBehaviour:
   _defaultStats: {fileID: 11400000, guid: c2a20212a27184a47ab612069e7b4d59, type: 2}
   _target: {fileID: 0}
   _animator: {fileID: 4240539759803357787}
+  _animatedRoot: {fileID: 4240539759793485261}
   _hurtDuration: 1
   _attackDuration: 1.2
   _walkFactor: 0.7
@@ -478,6 +479,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519321484099901784, guid: 4d99d47e6e48a714c895368aed8a8fa6,
+        type: 3}
+      propertyPath: eyesGlow
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7519321484099935820, guid: 4d99d47e6e48a714c895368aed8a8fa6,
         type: 3}

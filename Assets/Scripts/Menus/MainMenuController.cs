@@ -9,19 +9,19 @@ public class MainMenuController : MonoBehaviour
     private void OnEnable()
     {
         GameEvents.OnGameStateChanged += HandleGameStateChanged;
-        GameEvents.OnHighScoreChanged += UpdateHighScore;
+        GameEvents.OnHighScoreChanged += UpdateHighWave;
     }
 
     private void OnDisable()
     {
         GameEvents.OnGameStateChanged -= HandleGameStateChanged;
-        GameEvents.OnHighScoreChanged -= UpdateHighScore;
+        GameEvents.OnHighScoreChanged -= UpdateHighWave;
     }
 
     private void Start()
     {
         HandleGameStateChanged(GameManager.Instance.CurrentState);
-        UpdateHighScore(ScoreManager.Instance.HighScore);
+        UpdateHighWave(ScoreManager.Instance.HighWave);
     }
 
     private void HandleGameStateChanged(GameState state)
@@ -29,9 +29,9 @@ public class MainMenuController : MonoBehaviour
         _root.SetActive(state == GameState.Menu);
     }
 
-    private void UpdateHighScore(int highScore)
+    private void UpdateHighWave(int highWave)
     {
-        _highScoreText.text = $"Best: {highScore}";
+        _highScoreText.text = $"Best Wave: {highWave}";
     }
 
     public void OnStartPressed()

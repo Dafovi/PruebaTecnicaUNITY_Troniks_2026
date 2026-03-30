@@ -4,13 +4,13 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance { get; private set; }
 
-    private const string HighScoreKey = "HIGH_SCORE";
+    private const string HighWaveKey = "HIGH_WAVE";
 
-    [SerializeField] private int _currentScore;
-    [SerializeField] private int _highScore;
+    [SerializeField] private int _currentWave;
+    [SerializeField] private int _highWave;
 
-    public int CurrentScore => _currentScore;
-    public int HighScore => _highScore;
+    public int CurrentWave => _currentWave;
+    public int HighWave => _highWave;
 
     private void Awake()
     {
@@ -23,106 +23,63 @@ public class ScoreManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        LoadHighScore();
+        LoadHighWave();
     }
 
     private void OnEnable()
     {
         GameEvents.OnGameStarted += HandleGameStarted;
-        GameEvents.OnGameOver += HandleGameOver;
+        GameEvents.OnWaveChanged += HandleWaveChanged;
         GameEvents.OnReturnToMenu += HandleReturnToMenu;
     }
 
     private void OnDisable()
     {
         GameEvents.OnGameStarted -= HandleGameStarted;
-        GameEvents.OnGameOver -= HandleGameOver;
+        GameEvents.OnWaveChanged -= HandleWaveChanged;
         GameEvents.OnReturnToMenu -= HandleReturnToMenu;
     }
 
     private void Start()
     {
-        NotifyScore();
-        NotifyHighScore();
-    }
-
-    public void AddScore(int amount)
-    {
-        if (GameManager.Instance.CurrentState != GameState.Playing)
-            return;
-
-        if (amount <= 0)
-            return;
-
-        _currentScore += amount;
-        GameEvents.OnScoreChanged?.Invoke(_currentScore);
-
-        if (_currentScore > _highScore)
-        {
-            _highScore = _currentScore;
-            SaveHighScore();
-            GameEvents.OnHighScoreChanged?.Invoke(_highScore);
-        }
-    }
-
-    public void ResetScore()
-    {
-        _currentScore = 0;
-        GameEvents.OnScoreChanged?.Invoke(_currentScore);
-    }
-
-    public bool TrySpendScore(int amount)
-    {
-        if (amount <= 0)
-            return true;
-
-        if (_currentScore < amount)
-            return false;
-
-        _currentScore -= amount;
-        GameEvents.OnScoreChanged?.Invoke(_currentScore);
-        return true;
+        NotifyHighWave();
     }
 
     private void HandleGameStarted()
     {
-        ResetScore();
+        _currentWave = 0;
     }
 
-    private void HandleGameOver()
+    private void HandleWaveChanged(int wave)
     {
-        if (_currentScore > _highScore)
+        _currentWave = wave;
+
+        if (_currentWave > _highWave)
         {
-            _highScore = _currentScore;
-            SaveHighScore();
-            GameEvents.OnHighScoreChanged?.Invoke(_highScore);
+            _highWave = _currentWave;
+            SaveHighWave();
+            NotifyHighWave();
         }
     }
 
     private void HandleReturnToMenu()
     {
-        NotifyScore();
-        NotifyHighScore();
+        NotifyHighWave();
     }
 
-    private void LoadHighScore()
+    private void LoadHighWave()
     {
-        _highScore = PlayerPrefs.GetInt(HighScoreKey, 0);
+        _highWave = PlayerPrefs.GetInt(HighWaveKey, 0);
     }
 
-    private void SaveHighScore()
+    private void SaveHighWave()
     {
-        PlayerPrefs.SetInt(HighScoreKey, _highScore);
+        PlayerPrefs.SetInt(HighWaveKey, _highWave);
         PlayerPrefs.Save();
     }
 
-    private void NotifyScore()
+    private void NotifyHighWave()
     {
-        GameEvents.OnScoreChanged?.Invoke(_currentScore);
-    }
-
-    private void NotifyHighScore()
-    {
-        GameEvents.OnHighScoreChanged?.Invoke(_highScore);
+        GameEvents.OnHighScoreChanged?.Invoke(_highWave);
     }
 }

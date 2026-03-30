@@ -6,30 +6,16 @@ public class FlankerEnemyController : EnemyBaseController
 
     public override void MoveByState()
     {
-        if (Stats == null || IsDead)
-        {
+        if (IsDead || !CanMove)
             return;
-        }
 
-        if (!CanMove)
-        {
-            return;
-        }
-
-        MoveToBackstabPosition(GetChaseMoveFactor());
+        MoveToBackstabPosition(_walkFactor);
     }
 
     public override void Flee()
     {
-        if (Stats == null || IsDead)
-        {
+        if (IsDead || !CanMove)
             return;
-        }
-
-        if (!CanMove)
-        {
-            return;
-        }
 
         MoveAwayFromTarget(_runFactor);
     }
@@ -47,14 +33,6 @@ public class FlankerEnemyController : EnemyBaseController
     public override void RecoverAndResume()
     {
         base.RecoverAndResume();
-    }
-
-    protected override float GetChaseMoveFactor()
-    {
-        if (IsDead || !CanMove)
-            return 0f;
-
-        return _walkFactor;
     }
 
     protected override bool ShouldDrag()

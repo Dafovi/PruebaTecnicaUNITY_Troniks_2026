@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02a8673eca2fe1841a7dc45f1e1f8893, type: 3}
+  m_Name: Wave Progression SO
+  m_EditorClassIdentifier: 
+  BaseEnemyCount: 4
+  EnemyCountIncreasePerWave: 2
+  BaseSpawnInterval: 1.25
+  SpawnIntervalDecreasePerWave: 0.05
+  MinimumSpawnInterval: 0.35
+  HealthMultiplierPerWave: 0.12
+  DamageMultiplierPerWave: 0.05
+  MoveSpeedMultiplierPerWave: 0.03
+  Enemies:
+  - EnemyPrefab: {fileID: 3092394718550962997, guid: ccf0bfd1c85232a42911ccc7d7420393,
+      type: 3}
+    BaseStats: {fileID: 11400000, guid: c2a20212a27184a47ab612069e7b4d59, type: 2}
+    UnlockWave: 1
+    BaseWeight: 1
+    WeightIncreasePerWave: 0
+  - EnemyPrefab: {fileID: 2120860588566363053, guid: d757548eeb762a642963cd0c23a7f144,
+      type: 3}
+    BaseStats: {fileID: 11400000, guid: 46e5bed410dd8c842b7608904e5dd742, type: 2}
+    UnlockWave: 3
+    BaseWeight: 0.3
+    WeightIncreasePerWave: 0.08
