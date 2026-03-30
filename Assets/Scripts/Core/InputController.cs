@@ -10,6 +10,7 @@ public class InputController : MonoBehaviour
     public Vector2 MoveInput { get; private set; }
     public Vector2 LookInput { get; private set; }
     public bool SprintPressed { get; private set; }
+    public bool ShootPressed { get; private set; }
 
     public bool Active { get; private set; }
 
@@ -62,12 +63,14 @@ public class InputController : MonoBehaviour
             MoveInput = Vector2.zero;
             LookInput = Vector2.zero;
             SprintPressed = false;
+            ShootPressed = false;
             return;
         }
 
         MoveInput = _moveAction != null ? _moveAction.ReadValue<Vector2>() : Vector2.zero;
         LookInput = _lookAction != null ? _lookAction.ReadValue<Vector2>() : Vector2.zero;
         SprintPressed = _sprintAction != null && _sprintAction.ReadValue<float>() > 0f;
+        ShootPressed = _shootAction != null && _shootAction.ReadValue<float>() > 0f;
     }
 
     public void Activate()
@@ -186,5 +189,6 @@ public class InputController : MonoBehaviour
         MoveInput = Vector2.zero;
         LookInput = Vector2.zero;
         SprintPressed = false;
+        ShootPressed = false;
     }
 }

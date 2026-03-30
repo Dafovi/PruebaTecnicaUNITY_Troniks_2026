@@ -25,6 +25,20 @@ public class PlayerWeaponController : MonoBehaviour
         UpdateWeaponVisibility();
     }
 
+    private void Update()
+    {
+        if (GameManager.Instance == null || GameManager.Instance.CurrentState != GameState.Playing)
+            return;
+
+        if (InputController.Instance == null)
+            return;
+
+        if (InputController.Instance.ShootPressed)
+        {
+            Shoot();
+        }
+    }
+
     public void Shoot()
     {
         if (_weapons == null || _weapons.Count == 0)
